@@ -24,8 +24,9 @@ multipliers = {
 if st.sidebar.button("Calculate STI"):
     sr_multiplier = multipliers[group]
     sti = (salary * bonus) * sr_multiplier
-    st.sidebar.success(f"STI = ${sti:,.2f}")
+    st.sidebar.success(f"STI = ${sti:,.4f}")
 
 st.divider()
+
 
 
