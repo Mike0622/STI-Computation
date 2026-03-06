@@ -10,8 +10,8 @@ st.title("💰 STI Calculator Dashboard")
 st.sidebar.header("Manual Calculation")
 
 group = st.sidebar.selectbox("Bonus Group", ["1", "2", "3", "4"])
-salary = st.sidebar.float_input("Annual Salary")
-bonus = st.sidebar.float_input("Bonus Percentage")
+salary = st.sidebar.number_input("Annual Salary")
+bonus = st.sidebar.number_input("Bonus Percentage")
 
 multipliers = {
     "1": 0.1,
@@ -27,4 +27,5 @@ if st.sidebar.button("Calculate STI"):
     st.sidebar.success(f"STI = ${sti:,.2f}")
 
 st.divider()
+
 
