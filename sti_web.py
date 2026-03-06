@@ -50,7 +50,21 @@ st.markdown(
 
 st.set_page_config(page_title="STI Calculator", layout="wide")
 
-st.title("💰 STI Calculator Dashboard")
+st.markdown(
+    """
+    <style>
+    h1 {
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.title("STI Calculator Dashboard")
 
 # --- Sidebar Inputs ---
 st.header("Manual Calculation")
@@ -73,6 +87,7 @@ if st.button("Calculate STI"):
     st.success(f"STI = kr{sti:,.2f}")
 
 st.divider()
+
 
 
 
