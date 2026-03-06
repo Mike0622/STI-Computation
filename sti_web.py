@@ -13,6 +13,41 @@ footer {visibility: hidden;}
 
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+st.markdown(
+    """
+    <style>
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 24px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .stButton>button:hover {
+        background-color: #45a049;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: url("https://img.freepik.com/free-photo/laptop-glasses-coffee-cup-calculator-black-background-top-view_169016-36104.jpg?semt=ais_hybrid&w=740&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.set_page_config(page_title="STI Calculator", layout="wide")
 
 st.title("💰 STI Calculator Dashboard")
@@ -38,6 +73,7 @@ if st.button("Calculate STI"):
     st.success(f"STI = kr{sti:,.2f}")
 
 st.divider()
+
 
 
 
