@@ -10,8 +10,8 @@ st.title("💰 STI Calculator Dashboard")
 st.sidebar.header("Manual Calculation")
 
 group = st.sidebar.selectbox("Bonus Group", ["1", "2", "3", "4"])
-salary = st.sidebar.number_input("Annual Salary", min_value=0.000, value=50000.0)
-bonus = st.sidebar.number_input("Bonus Percentage", min_value=0.000, value=0.1, step=0.01)
+salary = st.sidebar.number_input("Annual Salary", min_value=0.000)
+bonus = st.sidebar.number_input("Bonus Percentage", min_value=0.000)
 
 multipliers = {
     "1": 0.1,
