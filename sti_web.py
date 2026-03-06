@@ -27,18 +27,3 @@ if st.sidebar.button("Calculate STI"):
     st.sidebar.success(f"STI = ${sti:,.2f}")
 
 st.divider()
-
-# --- Excel Upload ---
-st.header("📂 Upload Excel File for Batch Calculation")
-uploaded_file = st.file_uploader("Drag and drop your Excel file here", type=["xlsx"])
-
-if uploaded_file:
-    df = pd.read_excel(uploaded_file)
-
-    # Automatically compute STI
-    df["STI"] = (df["annualSalary"] * df["bonus"]) * df["srMultiplier"]
-
-    st.subheader("✅ Computed Results")
-    st.dataframe(df, use_container_width=True)
-
-    # Allow down
