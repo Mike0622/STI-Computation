@@ -7,11 +7,11 @@ st.set_page_config(page_title="STI Calculator", layout="wide")
 st.title("💰 STI Calculator Dashboard")
 
 # --- Sidebar Inputs ---
-st.center.header("Manual Calculation")
+st.header("Manual Calculation")
 
-group = st.center.selectbox("Bonus Group", ["1", "2", "3", "4"])
-salary = st.center.number_input("Annual Salary", min_value = 0.0, step = 0.0001, format = "%.4f")
-bonus = st.center.number_input("Bonus Percentage", min_value = 0.0, step = 0.0001, format = "%.4f")
+group = st.electbox("Bonus Group", ["1", "2", "3", "4"])
+salary = st.number_input("Annual Salary", min_value = 0.0, step = 0.0001, format = "%.4f")
+bonus = st.number_input("Bonus Percentage", min_value = 0.0, step = 0.0001, format = "%.4f")
 
 multipliers = {
     "1": 0.1,
@@ -21,12 +21,13 @@ multipliers = {
 }
 
 # --- Manual Calculation ---
-if st.center.button("Calculate STI"):
+if st.button("Calculate STI"):
     sr_multiplier = multipliers[group]
     sti = (salary * bonus) * sr_multiplier
-    st.center.success(f"STI = ${sti:,.4f}")
+    st.success(f"STI = ${sti:,.4f}")
 
 st.divider()
+
 
 
 
