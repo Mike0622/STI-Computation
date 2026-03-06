@@ -1,12 +1,17 @@
 import streamlit as st
 import pandas as pd
+from io import BytesIO
 
-st.title("STI Calculator")
+st.set_page_config(page_title="STI Calculator", layout="wide")
 
-# Inputs
-group = st.selectbox("Bonus Group", ["1", "2", "3", "4"])
-salary = st.number_input("Annual Salary", min_value=0.000)
-bonus = st.number_input("Bonus Percentage", min_value=0.000)
+st.title("💰 STI Calculator Dashboard")
+
+# --- Sidebar Inputs ---
+st.sidebar.header("Manual Calculation")
+
+group = st.sidebar.selectbox("Bonus Group", ["1", "2", "3", "4"])
+salary = st.sidebar.number_input("Annual Salary", min_value=0.000, value=50000.0)
+bonus = st.sidebar.number_input("Bonus Percentage", min_value=0.000, value=0.1, step=0.01)
 
 multipliers = {
     "1": 0.1,
@@ -15,26 +20,25 @@ multipliers = {
     "4": 0.18
 }
 
-if st.button("Calculate STI"):
+# --- Manual Calculation ---
+if st.sidebar.button("Calculate STI"):
     sr_multiplier = multipliers[group]
     sti = (salary * bonus) * sr_multiplier
-    st.success(f"STI = {sti:,.2f}")
+    st.sidebar.success(f"STI = ${sti:,.2f}")
 
 st.divider()
 
-# Excel upload
-uploaded_file = st.file_uploader("Upload Excel file", type=["xlsx"])
+# --- Excel Upload ---
+st.header("📂 Upload Excel File for Batch Calculation")
+uploaded_file = st.file_uploader("Drag and drop your Excel file here", type=["xlsx"])
 
 if uploaded_file:
     df = pd.read_excel(uploaded_file)
+
+    # Automatically compute STI
     df["STI"] = (df["annualSalary"] * df["bonus"]) * df["srMultiplier"]
 
-    st.write("Results")
-    st.dataframe(df)
+    st.subheader("✅ Computed Results")
+    st.dataframe(df, use_container_width=True)
 
-    st.download_button(
-        "Download Results",
-        df.to_excel("sti_results.xlsx", index=False),
-        file_name="sti_results.xlsx"
-    )
-
+    # Allow down
