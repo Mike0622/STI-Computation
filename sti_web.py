@@ -31,21 +31,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-image: url("https://img.freepik.com/free-photo/laptop-glasses-coffee-cup-calculator-black-background-top-view_169016-36104.jpg?semt=ais_hybrid&w=740&q=80");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 st.set_page_config(page_title="STI Calculator", layout="wide")
@@ -87,6 +72,7 @@ if st.button("Calculate STI"):
     st.success(f"STI = kr{sti:,.2f}")
 
 st.divider()
+
 
 
 
