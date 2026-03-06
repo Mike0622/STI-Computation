@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
 from io import BytesIO
+import streamlit as st
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+"""
+
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.set_page_config(page_title="STI Calculator", layout="wide")
 
@@ -27,6 +38,7 @@ if st.button("Calculate STI"):
     st.success(f"STI = kr{sti:,.2f}")
 
 st.divider()
+
 
 
 
