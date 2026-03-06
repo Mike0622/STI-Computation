@@ -24,9 +24,10 @@ multipliers = {
 if st.button("Calculate STI"):
     sr_multiplier = multipliers[group]
     sti = (salary * bonus) * sr_multiplier
-    st.success(f"STI = ${sti:,.2f}")
+    st.success(f"STI = kr{sti:,.2f}")
 
 st.divider()
+
 
 
 
